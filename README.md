@@ -26,13 +26,21 @@ Please make sure to update tests as appropriate.
 
 First, you use F11 to run the code. Then **use up and down arrow** to make this menu appear
 
+
+
 ![choose](https://user-images.githubusercontent.com/70569391/116786882-405f4300-aacb-11eb-9992-2f768b1b2d04.png)
+
+
 
 Then you can choose Snake game or Hangman game, and press Enter to play
 
 ### Snake
 
+
+
 ![snake](https://user-images.githubusercontent.com/70569391/116787015-f1fe7400-aacb-11eb-8707-d5e00063c0f2.png)
+
+
 
 Use [w a s d] to move a "snake" around the board. As the snake finds food, it eats the food, and thereby grows larger. The game ends when the snake either moves off the screen or moves into itself. The goal is to make the snake as large as possible before that happens.
 
@@ -47,16 +55,25 @@ The game is over when you eat your self or you touch the boundary.
 ### Hangman
 
 After an introdution, this screen will appear
+
+
 ![image](https://user-images.githubusercontent.com/70569391/116787741-16f4e600-aad0-11eb-84df-d046c363c59e.png)
+
+
 
 You have to choose mode to play. By clicking Enter and follow the .. is selected, you can choose the right mode. Because there is some bugs with the changing color when you choosing mode.
 There are two mode:
 * One player: You can play with a random word which is randomized automatically.
 You should guess the right answer within 7 turns. Or your character will be hung.
 * Two player: Two people play with each other. The first person will type a word, and the guesser must guess that word. When type, the letter automatically change to **** so that the guesser cant see.
+
+
 ![image](https://user-images.githubusercontent.com/70569391/116787853-c3cf6300-aad0-11eb-9701-b36ab8d9a32c.png)
 
+
 When the game over, u can play again or exit by use this menu, **You should press arrow button first to make this menu appear**
+
+
 ![image](https://user-images.githubusercontent.com/70569391/116788286-ecf0f300-aad2-11eb-8242-dbd1acb6b649.png)
 
 
