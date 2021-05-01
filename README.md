@@ -7,7 +7,7 @@
 Before you continue, ensure you meet the following requirements:
 
 * You have installed an IDE helps you run C++ and C program. *For example: Visual studio, devC, Codeblock,...*
-* You are using Windows Mac or Linux is not currently supported.
+* You are using Windows. Mac or Linux is not currently supported.
 * You have a basic understanding of C and C++ language.
 
 
