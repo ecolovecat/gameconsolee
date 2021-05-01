@@ -78,3 +78,5 @@ When the game over, u can play again or exit by use this menu, **You should pres
 
 
 
+##**HAVE FUN !!!**
+
