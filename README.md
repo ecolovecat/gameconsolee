@@ -63,7 +63,7 @@ After an introdution, this screen will appear
 
 You have to choose mode to play. By clicking Enter and follow the .. is selected, you can choose the right mode. Because there is some bugs with the changing color when you choosing mode.
 There are two mode:
-* One player: You can play with a random word which is randomized automatically.
+* One player: You can play with a random word which is randomized automatically in our list.
 You should guess the right answer within 7 turns. Or your character will be hung.
 * Two player: Two people play with each other. The first person will type a word, and the guesser must guess that word. When type, the letter automatically change to **** so that the guesser cant see.
 
