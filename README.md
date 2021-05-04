@@ -1,6 +1,6 @@
 # Game Hangman and Snake
 
-#### This is two simple games: ***hang man and snake***, combine into one program using ***C++*** and ***C***
+#### This is two simple games: ***hang man and snake***, consolidate into one program using ***C++*** and ***C***
 
 ## **Prerequisites**
 
@@ -24,7 +24,7 @@ Please make sure to update tests as appropriate.
 
 ## How to run game?
 
-First, use F11 to run the code. Then **use up and down arrow** to make this menu appear
+First, use F11 to run the code. Then **use up and down arrow** to make this menu show up
 
 
 
@@ -32,7 +32,7 @@ First, use F11 to run the code. Then **use up and down arrow** to make this menu
 
 
 
-Then you can choose Snake game or Hangman game, and press Enter to play
+Then you can pick Snake game or Hangman game, and press Enter to play
 
 ### Snake
 
@@ -61,7 +61,7 @@ After an introdution, this screen will appear
 
 
 
-You have to choose mode to play. By clicking Enter and follow the .. is selected, you can choose the right mode. Because there is some bugs with the changing color when you choosing mode.
+You need to pick mode to play. By clicking Enter and follow the .. is selected, you can choose the right mode. Since there is a few bugs with the changing color when you picking mode.
 There are two mode:
 * One player: You can play with a random word which is randomized automatically in our list.
 You should guess the right answer within 7 turns. Or your character will be hung.
