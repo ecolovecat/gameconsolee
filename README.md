@@ -24,7 +24,7 @@ Please make sure to update tests as appropriate.
 
 ## How to run game?
 
-First, you use F11 to run the code. Then **use up and down arrow** to make this menu appear
+First, use F11 to run the code. Then **use up and down arrow** to make this menu appear
 
 
 
