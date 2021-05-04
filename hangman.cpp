@@ -54,6 +54,7 @@ struct Snake
 	Move input;
 	int pt = 0;
 	int mode;
+	int speech2;
 };
 
 struct food
@@ -113,7 +114,7 @@ void Control(Snake &snake)
 void Render(Snake snake, food food, Snake mode)
 {
 	system("cls");
-	TextColor(12);
+	TextColor(11);
 	for(int i=0;i<consoleHeight;i++)
 	{
 		gotoxy(consoleWidth,i);
@@ -124,12 +125,12 @@ void Render(Snake snake, food food, Snake mode)
 		gotoxy(i,consoleWidth - 1);
 		putchar (95);
 	}
-	TextColor(5);
+	TextColor(11);
 	gotoxy(food.td.x,food.td.y);
 	putchar('*');
 	TextColor(13);
 	gotoxy (snake.point[0].x,snake.point[0].y);
-	putchar(2);
+	putchar('@');
 	for (int i = 1; i < snake.n; i++)
 	{
 		gotoxy(snake.point[i].x, snake.point[i].y);
@@ -251,9 +252,16 @@ int Handle(Snake &snake,food &food, int &speech)
 	
 }
 
+
+
 void snake() {
+	system("cls");
+	cout << "Choose your start speed: 1 ~ 5: " << " ";
+	int speed ;
+	cin >> speed;
+	int speedd = 250 - speed * 40;
+	system("cls");
 	int flag;
-	int speech = 300;
 	
 	food food;
 	Snake snake;
@@ -266,7 +274,7 @@ void snake() {
 		gotoxy(35,2);
 		printf("Di chuyen bang cach an a s d w");
 		Control(snake);
-		flag = Handle(snake, food,speech);
+		flag = Handle(snake, food,speedd);
 		if(flag == -1) 
 		{
 			gotoxy(consoleWidth +1 , 10);
@@ -275,7 +283,7 @@ void snake() {
 			break;
 		}
 		
-		Sleep(speech);
+		Sleep(speedd);
 	}
 
 }
