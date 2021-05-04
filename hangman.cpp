@@ -72,37 +72,12 @@ void Init(Snake &snake,food &food)
 	snake.point[0].x = 0;
 	snake.point[0].y = 0;
 	snake.input = Down;
-	food.td.x = 7;
-	food.td.y = 7;
+	food.td.x = 10;
+	food.td.y = 10;
 }
 
 
-void Render(Snake snake, food food, Snake mode)
-{
-	system("cls");
-	TextColor(12);
-	for(int i=0;i<consoleHeight;i++)
-	{
-		gotoxy(consoleWidth,i);
-		putchar (179);
-	}
-	for(int i=0;i<consoleHeight + 1;i++)
-	{
-		gotoxy(i,consoleWidth - 1);
-		putchar (95);
-	}
-	TextColor(5);
-	gotoxy(food.td.x,food.td.y);
-	putchar('*');
-	TextColor(13);
-	gotoxy (snake.point[0].x,snake.point[0].y);
-	putchar(2);
-	for (int i = 1; i < snake.n; i++)
-	{
-		gotoxy(snake.point[i].x, snake.point[i].y);
-		putchar('O');
-	}
-}
+
 
 void Control(Snake &snake)
 {
@@ -135,24 +110,51 @@ void Control(Snake &snake)
 		snake.point[0].x++;
 }
 //
-int Handle(Snake &snake,food &food, int &timee)
+void Render(Snake snake, food food, Snake mode)
+{
+	system("cls");
+	TextColor(12);
+	for(int i=0;i<consoleHeight;i++)
+	{
+		gotoxy(consoleWidth,i);
+		putchar (179);
+	}
+	for(int i=0;i<consoleHeight + 1;i++)
+	{
+		gotoxy(i,consoleWidth - 1);
+		putchar (95);
+	}
+	TextColor(5);
+	gotoxy(food.td.x,food.td.y);
+	putchar('*');
+	TextColor(13);
+	gotoxy (snake.point[0].x,snake.point[0].y);
+	putchar(2);
+	for (int i = 1; i < snake.n; i++)
+	{
+		gotoxy(snake.point[i].x, snake.point[i].y);
+		putchar('O');
+	}
+}
+
+int Handle(Snake &snake,food &food, int &speech)
 {
 	snake.mode = rand() % 3 + 1;
 	gotoxy(35, 5);
 	printf("Your point: %d", snake.pt);
 	gotoxy(35, 6);
 	printf("Your mode is: %d", snake.mode);
-	if(snake.point[0].x <0||snake.point[0].x>=consoleWidth||
-	snake.point[0].y<0||snake.point[0].y>=consoleHeight)
+	if(snake.point[0].x < 0|| snake.point[0].x >= consoleWidth||
+	snake.point[0].y < 0 || snake.point[0].y >= consoleHeight)
 	return -1;
-	for(int i=1;i<snake.n;i++)
-		if(snake.point[0].x==snake.point[i].x&&snake.point[0].y==snake.point[i].y)
+	for(int i = 1; i < snake.n; i++)
+		if(snake.point[0].x == snake.point[i].x && snake.point[0].y == snake.point[i].y)
 		return -1;
 	if(snake.mode == 1) {
-	if(snake.point[0].x==food.td.x&&snake.point[0].y==food.td.y)
+	if(snake.point[0].x == food.td.x && snake.point[0].y == food.td.y)
 	{
-		for(int i=snake.n;i>0;i--)
-			snake.point[i]=snake.point[i-1];
+		for(int i = snake.n; i > 0; i--)
+			snake.point[i] = snake.point[i-1];
 		snake.n++;
 		if (snake.input == Up)
 		snake.point[0].y--;
@@ -163,10 +165,14 @@ int Handle(Snake &snake,food &food, int &timee)
 	else if (snake.input == Right)
 		snake.point[0].x++;
 		
-		food.td.x= rand() % consoleWidth - 2;
-		food.td.y= rand() % consoleHeight - 2;
-		if(timee>50)
-		timee -= 5;
+		food.td.x= rand() % consoleWidth;
+		food.td.y= rand() % consoleHeight;
+		if (food.td.x == consoleWidth && food.td.y == consoleHeight) {
+			food.td.x= rand() % consoleWidth;
+			food.td.y= rand() % consoleHeight;
+		}
+		if(speech > 30)
+		speech -= 8;
 		snake.pt++;
 		snake.pt += 5;
 		
@@ -195,8 +201,12 @@ int Handle(Snake &snake,food &food, int &timee)
 		
 		food.td.x= rand() % consoleWidth - 2;
 		food.td.y= rand() % consoleHeight -2 ;
-		if(timee>50)
-		timee -= 5;
+		if (food.td.x == consoleWidth && food.td.y == consoleHeight) {
+			food.td.x= rand() % consoleWidth;
+			food.td.y= rand() % consoleHeight;
+		}
+		if(speech > 30)
+		speech -= 8;
 		snake.pt++;
 		snake.pt += 5;
 		
@@ -223,8 +233,12 @@ int Handle(Snake &snake,food &food, int &timee)
 		
 		food.td.x= rand() % consoleWidth - 2;
 		food.td.y= rand() % consoleHeight -2 ;
-		if(timee>50)
-		timee -= 5;
+		if (food.td.x == consoleWidth - 1 && food.td.y == consoleHeight - 1) {
+			food.td.x= rand() % consoleWidth;
+			food.td.y= rand() % consoleHeight;
+		}
+		if(speech > 30)
+		speech -= 8;
 		snake.pt++;
 		snake.pt -= 10;
 		if (snake.pt < 0) {
@@ -238,33 +252,30 @@ int Handle(Snake &snake,food &food, int &timee)
 }
 
 void snake() {
-	int ma;
-	int timee=200;
-	srand(time(NULL)); // khoi tao bo sinh so ngau nhien
+	int flag;
+	int speech = 300;
+	
 	food food;
 	Snake snake;
 	Snake mode;
-	Init(snake,food);
-	while (1)
+	Init(snake, food);
+	while (true)
 	{
-		//hien thi
-		Render(snake,food,mode);
+		
+		Render(snake, food, mode);
 		gotoxy(35,2);
 		printf("Di chuyen bang cach an a s d w");
-		//dieu khien;
 		Control(snake);
-		//xu ly
-		ma=Handle(snake, food,timee);
-		//thua ,thang
-		if(ma==-1) //thua
+		flag = Handle(snake, food,speech);
+		if(flag == -1) 
 		{
 			gotoxy(consoleWidth +1 , 10);
 			printf("press enter to exit");
-			while(_getch()!=13);
+			while(_getch() != 13);
 			break;
 		}
-		//tocdo game
-		Sleep(timee);
+		
+		Sleep(speech);
 	}
 
 }
